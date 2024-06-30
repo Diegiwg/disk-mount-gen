@@ -1,5 +1,7 @@
 # Disk Auto Mount Generator
 
+<img src="logo.png" alt="Disk Auto Mount Generator Logo" width="100" title="Credits: https://www.flaticon.com/free-icon/database-storage_4439575" >
+
 Disk Auto Mount Generator is a web tool for generating systemd service files for automatically mounting disks on your Linux system.
 
 ## Features
