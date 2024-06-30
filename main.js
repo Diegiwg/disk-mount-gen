@@ -1,23 +1,46 @@
 /** @type {HTMLFormElement} */
 let formElement;
+
 /** @type {HTMLInputElement} */
 let descriptionElement;
 /** @type {HTMLParagraphElement} */
 let descriptionError;
+
 /** @type {HTMLInputElement} */
 let uuidElement;
 /** @type {HTMLParagraphElement} */
 let uuidError;
+
 /** @type {HTMLInputElement} */
 let mountPathElement;
 /** @type {HTMLParagraphElement} */
 let mountPathError;
+
+/** @type {HTMLInputElement} */
+let typeElement;
+/** @type {HTMLParagraphElement} */
+let typeError;
+
 /** @type {HTMLAnchorElement} */
 let submitButton;
 /** @type {HTMLAnchorElement} */
 let downloadButton;
 /** @type {HTMLTextAreaElement} */
 let outputArea;
+
+const filesystemTypes = [
+    "ext4",
+    "ext3",
+    "ext2",
+    "xfs",
+    "btrfs",
+    "zfs",
+    "f2fs",
+    "reiserfs",
+    "jfs",
+    "nilfs",
+    "udf",
+];
 
 (async () => {
     if (!loadElements()) {
@@ -30,16 +53,14 @@ let outputArea;
 
         resetErrors();
 
-        const [description, uuid, mountPath] = checkData();
+        const [description, uuid, mountPath, type] = checkData();
 
-        if (!description || !uuid || !mountPath) {
+        if (!description || !uuid || !mountPath || !type) {
             console.error("Failed to check data");
             return;
         }
 
-        console.log(description, uuid, mountPath);
-
-        const content = assembly(uuid, mountPath, description);
+        const content = assembly(uuid, mountPath, description, type);
 
         outputArea.textContent = content;
 
@@ -83,6 +104,16 @@ function loadElements() {
         return;
     }
 
+    typeElement = document.querySelector("#type");
+    if (!typeElement) {
+        return;
+    }
+
+    typeError = document.querySelector("#type-error");
+    if (!typeError) {
+        return;
+    }
+
     submitButton = document.querySelector("#submit");
     if (!submitButton) {
         return;
@@ -105,9 +136,11 @@ function resetErrors() {
     descriptionError.textContent = "";
     uuidError.textContent = "";
     mountPathError.textContent = "";
+    typeError.textContent = "";
     descriptionElement.classList.toggle("error", false);
     uuidElement.classList.toggle("error", false);
     mountPathElement.classList.toggle("error", false);
+    typeElement.classList.toggle("error", false);
 }
 
 function checkData() {
@@ -115,6 +148,7 @@ function checkData() {
     const description = formData.get("description");
     const uuid = formData.get("uuid");
     const mountPath = formData.get("mount-path");
+    const type = formData.get("type");
 
     let hasError = false;
 
@@ -146,7 +180,19 @@ function checkData() {
         hasError = true;
     }
 
-    return hasError ? [null, null, null] : [description, uuid, mountPath];
+    // TYPE
+    if (!filesystemTypes.includes(type)) {
+        typeError.textContent =
+            "Invalid type. Use one of: " +
+            filesystemTypes.join(", ") +
+            ".";
+        typeElement.classList.toggle("error", true);
+        hasError = true;
+    }
+
+    return hasError
+        ? [null, null, null, null]
+        : [description, uuid, mountPath, type];
 }
 
 /**
