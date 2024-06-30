@@ -16,7 +16,7 @@ Disk Auto Mount Generator is a web tool for generating systemd service files for
 
 ### Usage
 
-1. Go to the website: [Disk Auto Mount Generator](https://gen.site)
+1. Go to the website: [Disk Auto Mount Generator](https://diegiwg.github.io/disk-mount-gen/)
 2. Fill in the service description, disk UUID, and mount path.
 3. Click the "Generate" button to create the systemd service file.
 4. Download the generated file by clicking the "Download" button.
