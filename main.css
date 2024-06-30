@@ -4,119 +4,130 @@ body {
     line-height: 1.5;
     background-color: #f5f5f5;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .space {
     margin-bottom: 1rem;
 }
 
-#app {
+#app, #how-to-use {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
 
+#app {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
 
-    h1 {
-        margin: 0;
-        margin-bottom: 0.5rem;
-        font-size: 2rem;
-    }
+#app h1 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 1rem;
-        gap: 0.5rem;
+#app form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
 
-        label {
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
+#app form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
 
-        p {
-            height: 1rem;
-            margin: 0;
-            color: red;
-            font-size: 0.8rem;
-        }
+#app form .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
 
-        input {
-            width: 20rem;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+#app form .form-group p {
+    height: 1rem;
+    margin: 0;
+    color: red;
+    font-size: 0.8rem;
+}
 
-        .error {
-            border-color: red;
-        }
+#app form .form-group input {
+    width: 100%;
+    max-width: 20rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        div {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+#app form .form-group input.error {
+    border-color: red;
+}
 
-            a {
-                width: 6rem;
-                padding: 0.5rem 1rem;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                text-decoration: none;
-                text-align: center;
-            }
+#app form .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-            a.disabled {
-                background-color: #ccc;
-                cursor: not-allowed;
-            }
-        }
-    }
+#app form .form-actions a {
+    width: 6rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
 
-    textarea {
-        width: 100%;
-        height: 10rem;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        resize: none;
-    }
+#app form .form-actions a.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#app form .form-actions a:hover:not(.disabled) {
+    background-color: #0056b3;
+}
+
+#app textarea {
+    width: 100%;
+    height: 10rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
 }
 
 #how-to-use {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-
     display: flex;
     flex-direction: column;
+}
 
-    h2 {
-        margin: 0;
-        font-size: 2rem;
-        text-align: center;
-    }
+#how-to-use h2 {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
 
-    h3 {
-        margin-bottom: 0.2rem;
-        font-size: 0.9rem;
-    }
+#how-to-use h3 {
+    margin: 1rem 0 0.2rem;
+    font-size: 1rem;
+}
 
-    p {
-        margin: 0;
-        font-size: 0.8rem;
-    }
+#how-to-use p {
+    margin: 0;
+    font-size: 0.9rem;
 }
