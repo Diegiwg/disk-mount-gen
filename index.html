@@ -105,37 +105,75 @@
                     <p>Run the command <strong>lsblk -f</strong></p>
                     <p>Look for the disk you want to mount.</p>
                     <p>Copy the target disk UUID.</p>
-                    <p>For example: <strong>UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</strong></p>
+                    <p>
+                        For example:
+                        <strong
+                            >UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</strong
+                        >
+                    </p>
                 </li>
                 <li>
                     <h3>Define your mount path</h3>
-                    <p>Preferably create a folder in root, like <strong>/data</strong>, and mount the disk in sub-folders.</p>
+                    <p>
+                        Preferably create a folder in root, like
+                        <strong>/data</strong>, and mount the disk in
+                        sub-folders.
+                    </p>
                     <p>For example: <strong>/data/disk-1</strong></p>
                 </li>
                 <li>
                     <h3>Define your disk type</h3>
-                    <p>For example: <strong>ext4</strong> or <strong>xfs</strong></p>
+                    <p>
+                        For example: <strong>ext4</strong> or
+                        <strong>xfs</strong>
+                    </p>
                 </li>
                 <li>
                     <h3>Generate your mount file</h3>
-                    <p>Click on <strong>Generate</strong> and wait for the result.</p>
-                    <p>You can download the file by clicking on <strong>Download</strong></p>
+                    <p>
+                        Click on <strong>Generate</strong> and wait for the
+                        result.
+                    </p>
+                    <p>
+                        You can download the file by clicking on
+                        <strong>Download</strong>
+                    </p>
                 </li>
                 <li>
                     <h3>Move the downloaded file to systemd</h3>
-                    <p>For example: <strong>sudo cp /tmp/disk-mount.service /etc/systemd/system/disk-mount.service</strong></p>
-                    <p>Then run: <strong>sudo systemctl daemon-reload</strong></p>
+                    <p>
+                        For example:
+                        <strong
+                            >sudo cp /tmp/disk-mount.service
+                            /etc/systemd/system/disk-mount.service</strong
+                        >
+                    </p>
+                    <p>
+                        Then run: <strong>sudo systemctl daemon-reload</strong>
+                    </p>
                 </li>
                 <li>
                     <h3>Start the service</h3>
-                    <p>For example: <strong>sudo systemctl start disk-mount</strong></p>
-                    <p>Then run: <strong>sudo systemctl status disk-mount</strong></p>
+                    <p>
+                        For example:
+                        <strong>sudo systemctl start disk-mount</strong>
+                    </p>
+                    <p>
+                        Then run:
+                        <strong>sudo systemctl status disk-mount</strong>
+                    </p>
                     <p>Check if the service is running.</p>
                 </li>
                 <li>
                     <h3>Enable the service</h3>
-                    <p>For example: <strong>sudo systemctl enable disk-mount</strong></p>
-                    <p>Then run: <strong>sudo systemctl status disk-mount</strong></p>
+                    <p>
+                        For example:
+                        <strong>sudo systemctl enable disk-mount</strong>
+                    </p>
+                    <p>
+                        Then run:
+                        <strong>sudo systemctl status disk-mount</strong>
+                    </p>
                     <p>Check if the service is enabled.</p>
                 </li>
                 <li>
