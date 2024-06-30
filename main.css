@@ -12,6 +12,12 @@ body {
     margin-bottom: 1rem;
 }
 
+#app .logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
 #app, #how-to-use {
     max-width: 800px;
     margin: 20px auto;
@@ -103,7 +109,7 @@ body {
 
 #app textarea {
     width: 100%;
-    height: 10rem;
+    height: 14rem;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
