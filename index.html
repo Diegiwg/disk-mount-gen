@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Disk Auto Mount Generator</title>
+        <link rel="stylesheet" href="main.css" />
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Disk Auto Mount Generator</h1>
+
+            <form action="#">
+                <label for="description">Service Description</label>
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="Disk Auto Mount Service"
+                />
+                <p id="description-error"></p>
+
+                <label for="uuid">Disk UUID</label>
+                <input
+                    type="text"
+                    id="uuid"
+                    name="uuid"
+                    placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                />
+                <p id="uuid-error"></p>
+
+                <label for="mount-path">Mount Path</label>
+                <input
+                    type="text"
+                    id="mount-path"
+                    name="mount-path"
+                    placeholder="/data/disk_1"
+                />
+                <p id="mount-path-error"></p>
+
+                <div>
+                    <a href="#" id="submit">Generate</a>
+                    <a href="#" id="download" class="disabled">Download</a>
+                </div>
+            </form>
+            <textarea id="output" readonly disabled></textarea>
+        </div>
+        <div class="space"></div>
+        <div id="how-to-use">
+            <h2>How to use</h2>
+
+            <h3>1. Define your service description</h3>
+            <p>For example: <strong>`Disk Auto Mount Service`</strong></p>
+            <p>Make it short and clear</p>
+
+            <h3>2. Get the UUID of your disk</h3>
+            <p>Run the command <strong>`lsblk -f`</strong></p>
+            <p>Look for the disk you want to mount</p>
+            <p>Copy the target disk UUID</p>
+            <p>For example: <strong>`UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`</strong></p>
+
+            <h3>3. Define your mount path</h3>
+            <p>Preferably use create a folder in root, like <strong>`/data<strong>` and mount the disk in sub-folders</p>
+            <p>For example: <strong>`/data/disk-1`</strong></p>
+
+            <h3>4. Generate your mount file</h3>
+            <p>Click on <strong>`Generate<strong>` and wait for the result</p>
+            <p>You can download the file by clicking on <strong>`Download`</strong></p>
+
+            <h3>5. Move the download file to systemd</h3>
+            <p>For example: <strong>`sudo cp /tmp/disk-mount.service /etc/systemd/system/disk-mount.service`</strong></p>
+            <p>Then: <strong>`sudo systemctl daemon-reload`</strong></p>
+
+            <h3>6. Start the service</h3>
+            <p>For example: <strong>`sudo systemctl start disk-mount`</strong></p>
+            <p>Then: <strong>`sudo systemctl status disk-mount`</strong></p>
+            <p>Check if the service is running</p>
+
+            <h3>7. Enable the service</h3>
+            <p>For example: <strong>`sudo systemctl enable disk-mount`</strong></p>
+            <p>Then: <strong>`sudo systemctl status disk-mount`</strong></p>
+            <p>Check if the service is enabled</p>
+
+            <h3>8. Check the mount path</h3>
+            <p>Restart your system</p>
+            <p>Go to your mount path</p>
+            <p>For example: <strong>`cd /data/disk-1`</strong></p>
+        </div>
+    </body>
+</html>
