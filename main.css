@@ -18,7 +18,9 @@ body {
     margin-bottom: 1rem;
 }
 
-#app, #how-to-use {
+#app,
+#how-to-use,
+#footer {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -136,4 +138,17 @@ body {
 #how-to-use p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+#footer {
+    text-align: center;
+}
+
+#footer p {
+    margin: 0;
+}
+
+#footer a {
+    text-decoration: none;
+    color: #007bff;
 }
